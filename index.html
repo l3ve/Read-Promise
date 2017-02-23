@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="./lib/promise.js"></script>
+<script>
+    var pm = new Promise((resolve, reject) => {
+        resolve('pass');
+    }).then((value) => {
+        console.log(value);
+    }).then((value) => {
+        console.log(value);
+    });
+
+</script>
+
+</html>
