@@ -11,10 +11,20 @@
 </body>
 <script src="./lib/promise.js"></script>
 <script>
-    var pm = new Promise((resolve, reject) => {
+    var pm = new PromiseAplus((resolve, reject) => {
+        // setTimeout(() => {
         resolve('pass');
+        // }, 1000);
     }).then((value) => {
         console.log(value);
+        return new PromiseAplus((resolve) => {
+            setTimeout(() => {
+                resolve(value + 1);
+            }, 1000);
+        })
+    }).then((value) => {
+        console.log(value);
+        return value
     }).then((value) => {
         console.log(value);
     });
