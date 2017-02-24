@@ -212,9 +212,9 @@ class PromiseAplus {
             return
         }
         // 2.3.3
-        if (typeof x === 'object' || typeof x === 'function') {
-            then = x.then;
+        if (x !== null && (typeof x === 'object' || typeof x === 'function')) {
             try {
+                then = x.then;
                 if (typeof then === 'function') {
                     then.call(x, (y) => {
                         // 2.3.3.3.3
@@ -234,6 +234,7 @@ class PromiseAplus {
             } catch (reason) {
                 // 2.3.3.3.4.1
                 if (isIgnored) return;
+                isIgnored = true;
                 return reject(reason);
             }
         } else {
@@ -250,7 +251,7 @@ try {
 
 PromiseAplus.deferred = PromiseAplus.defer = function () {
     var dfd = {}
-    dfd.PromiseAplus = new PromiseAplus(function (resolve, reject) {
+    dfd.promise = new PromiseAplus(function (resolve, reject) {
         dfd.resolve = resolve
         dfd.reject = reject
     })
