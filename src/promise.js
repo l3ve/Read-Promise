@@ -242,3 +242,17 @@ class PromiseAplus {
         }
     }
 }
+
+//测试用
+try {
+    module.exports = PromiseAplus
+} catch (e) { }
+
+PromiseAplus.deferred = PromiseAplus.defer = function () {
+    var dfd = {}
+    dfd.PromiseAplus = new PromiseAplus(function (resolve, reject) {
+        dfd.resolve = resolve
+        dfd.reject = reject
+    })
+    return dfd
+}
