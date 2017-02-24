@@ -12,9 +12,9 @@
 <script src="./lib/promise.js"></script>
 <script>
     var pm = new PromiseAplus((resolve, reject) => {
-        // setTimeout(() => {
-        resolve('pass');
-        // }, 1000);
+        setTimeout(() => {
+            resolve('pass');
+        }, 1000);
     }).then((value) => {
         console.log(value);
         return new Promise((resolve) => {
