@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "babel src -d lib -w",
-    "test": "promises-aplus-tests lib/promise.js"
+    "test": "promises-aplus-tests lib/promise.min.js"
   },
   "dependencies": {
     "babel-cli": "^6.23.0",
